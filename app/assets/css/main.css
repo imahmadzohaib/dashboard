@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+
+@import "@nuxt/ui";
+
+@layer base {
+  body {
+    @apply bg-white text-black;
+  }
+
+  .dark body {
+    @apply bg-[#141A21] text-white;
+  }
+  .light body{
+    @apply bg-[#F9FAFB]
+  }
+}
