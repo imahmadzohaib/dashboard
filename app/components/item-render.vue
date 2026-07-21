@@ -27,7 +27,9 @@ interface Item {
 }
 
 const props = defineProps<{ items: Item[] }>();
-const isOpen = useState("sidebar-open");
+const isOpen = useState("sidebar-open",()=>true);
+
+
 
 const route = useRoute();
 </script>

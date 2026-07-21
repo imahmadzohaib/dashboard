@@ -18,6 +18,6 @@ const props = defineProps({
     totalItems: Object
 });
 
-const isOpen = useState("sidebar-open")
+const isOpen = useState("sidebar-open",()=>true)
 
 </script>

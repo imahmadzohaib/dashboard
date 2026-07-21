@@ -2,9 +2,9 @@
   <div
     class="rounded-3xl  p-6  h-48
            flex flex-col justify-between"
-           :class="!isDark?'bg-[#1F2933]':'bg-white' "
+           :class="isDark?'bg-white':'bg-[#1F2933]' "
   >
-    <div :class="!isDark?'text-[#919EAB]':'text-black'">
+    <div :class="isDark?'text-black':'text-[#919EAB]'">
       <p class=" text-sm"
         >
         {{ title }}

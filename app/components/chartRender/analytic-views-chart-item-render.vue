@@ -1,5 +1,5 @@
 <template>
-    <div class="grid grid-cols-4 gap-6 mt-4">
+    <div class="grid lg:grid-cols-4 gap-6 mt-4 md:grid-cols-2 max-md:grid-cols-1">
     <StatsCard
       title="Pageviews"
       value="56.8K"

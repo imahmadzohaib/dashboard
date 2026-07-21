@@ -2,9 +2,9 @@
   <div class="space-y-4">
     <h2 class="text-3xl font-bold">Device Breakdown</h2>
 
-    <div class="flex items-center gap-8">
+    <div class="flex items-center gap-8 max-sm:flex-col">
 
-      <div class="w-36 h-36 flex items-center justify-center shrink-0">
+      <div class="w-36 h-36 flex items-center justify-center shrink-0 lg:w-30 lg:h30">
         <ClientOnly>
           <slot />
         </ClientOnly>
@@ -14,17 +14,17 @@
         <div
           v-for="item in devices"
           :key="item.name"
-          class="flex items-center justify-between rounded-2xl border border-[#313A44] p-5"
+          class="flex items-center justify-between rounded-2xl border border-[#313A44] p-5 lg:p-3"
         >
           <div class="flex items-center gap-4">
             <Icon
               :name="item.icon"
-              class="text-4xl shrink-0"
+              class="text-4xl shrink-0 lg:text-3xl"
               :style="{ color: item.color }"
             />
 
             <div>
-              <p class="font-semibold">
+              <p class="font-semibold ">
                 {{ item.name }}
               </p>
 
@@ -34,7 +34,7 @@
             </div>
           </div>
 
-          <span class="text-xl font-bold">
+          <span class="text-xl font-bold lg:font-semibold lg:text-lg">
             {{ item.percent }}%
           </span>
         </div>

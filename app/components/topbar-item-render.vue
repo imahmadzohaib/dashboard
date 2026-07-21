@@ -9,13 +9,13 @@
     <Icon  :name="item.title === 'light' ? themeIcon : item.icon" :style="{color:'#80858B'}" />
   </div>
   <div
-    class="fixed flex-col top-12 right-12 pt-1 bg-[#1C252E] rounded-md outline font-semibold"
+    class="fixed flex-col top-12 right-12 pt-1 bg-[#1C252E] rounded-md outline outline-[#29313A] font-semibold"
     :class="isLang ? 'block' : 'hidden'"
   >
     <div
       v-for="value in langarr"
       :key="value"
-      class="p-2 hover:bg-[#2E363E] transition-colors cursor-pointer"
+      class="p-2 hover:bg-[#2E363E] transition-colors cursor-pointer pl-5 pr-5"
       :class="isSelected === value ? 'text-green-600' : ''"
       @click="selected(value)"
     >
@@ -49,6 +49,7 @@ const props = defineProps({
 
 function selected(item) {
   isSelected.value = item;
+  isLang.value=false;
 }
 function handleClick(item) { 
   switch (item.title) {

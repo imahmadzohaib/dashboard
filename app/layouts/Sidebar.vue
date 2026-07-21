@@ -1,8 +1,13 @@
 <template>
+  <div v-if="isOpen" class="fixed inset-0 bg-[#212A33]/80 z-40 md:hidden" @click="toggleOpen">
+    
+  </div>
   <div
-    class="flex flex-col bg-[#1C252E] text-[#919EAB] outline outline-solid outline-slate-500
-     transition-all duration-300 overflow-y-auto h-[calc(100vh-64px)] fixed bottom-0 hide-scrollbar" 
-     :class="isOpen? 'w-64' : 'w-16' " >
+    class="fixed top-16 left-0 h-[calc(100vh-64px)]
+         flex flex-col bg-[#1C252E] text-[#919EAB]
+         outline outline-solid outline-[#29313A]
+         transition-all duration-300 overflow-y-auto hide-scrollbar"
+  :class="isOpen ? 'w-64  max-md:z-50' : 'w-16 max-md:hidden'" @click="toggleOpen">
     <div class="pl-4">
       <SidebarRender :totalItems="totalItems"></SidebarRender>
     </div>
@@ -10,6 +15,15 @@
 </template>
 
 <script setup lang="ts">
+import { useMediaQuery } from '@vueuse/core';
+
+const isMobile = useMediaQuery("(max-width: 768px)");
+
+function toggleOpen() {
+  if (isMobile.value) {
+    isOpen.value = false
+  }
+}
 
 const totalItems = [
   {
@@ -87,7 +101,7 @@ const totalItems = [
   },
 ];
 
-const isOpen = useState("sidebar-open", () => true);
+const isOpen = useState("sidebar-open", () => true)
 
 </script>
 

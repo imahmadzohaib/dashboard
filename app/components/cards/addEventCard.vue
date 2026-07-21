@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#171E25] p-8 rounded-2xl border border-[#2e363e]">
+  <div class=" p-8 rounded-2xl border border-[#2e363e] max-xs:p-4" :class="isDark? 'bg-white':'bg-[#171E25]' ">
     <h2 class="font-bold text-2xl p-2 pl-0">New Event</h2>
 
     <form @submit.prevent="submitEvent" class="font-semibold flex flex-col gap-4">
@@ -10,18 +10,23 @@
           id="title"
           placeholder="Event title"
           v-model="title"
-          class="font-light rounded-md p-2 border border-[#2e363e] bg-[#1C252E]"
-        />
+          class="font-light rounded-md p-2 border border-[#2e363e] "
+          :class="isDark? 'bg-white':'bg-[#1C252E]'"
+          />
       </div>
 
-      <div class="flex gap-40">
+      <div class="flex gap-40 max-sm:gap-25 max-xs:gap-1">
         <div>
           <label for="startDate" class="block">Start Date</label>
-          <input type="date" name="" id="startDate" v-model="startDate" class="font-light rounded-md p-2 border border-[#2e363e] bg-[#1C252E] mt-1" />
+          <input type="date" name="" id="startDate" v-model="startDate" 
+          :class="isDark? 'bg-white':'bg-[#1C252E]'"
+          class="font-light rounded-md p-2 border border-[#2e363e]  mt-1" />
         </div>
         <div>
           <label for="endDate" class="block">End Date</label>
-          <input type="date" name="" id="endDate" v-model="endDate" class="font-light rounded-md p-2 border border-[#2e363e] bg-[#1C252E] mt-1" />
+          <input type="date" name="" id="endDate" v-model="endDate" 
+          :class="isDark? 'bg-white':'bg-[#1C252E]'"
+          class="font-light rounded-md p-2 border border-[#2e363e]  mt-1" />
         </div>
       </div>
 
@@ -105,7 +110,8 @@
       <div>
         <label for="description" class="block">Description</label>
         <textarea name="" id="description" v-model="description" placeholder="Add a description"
-         class="font-light rounded-md p-2 border border-[#2e363e] bg-[#1C252E] mt-1"></textarea>
+         class="font-light rounded-md p-2 border border-[#2e363e] bg-[#1C252E] mt-1"
+         :class="isDark? 'bg-white':'bg-[#1C252E]'"></textarea>
       </div>
 
       <div class="flex gap-2 items-center justify-end">
@@ -126,6 +132,7 @@ const startDate = ref(null);
 const endDate = ref(null);
 const description = ref(null);
 const emit = defineEmits(['close']);
+const isDark = useState("theme", () => true);
 
 
 const submitEvent = ()=>{

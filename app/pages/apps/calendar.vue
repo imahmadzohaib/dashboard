@@ -12,22 +12,24 @@
         + New Event
       </div>
     </div>
-    <div class="bg-[#1C252E] rounded-3xl p-4 mt-8">
+    <div
+      class="rounded-3xl p-4 mt-8"
+      :class="[!isDark? 'bg-[#1C252E] outline outline-[#2E363E]': 'bg-white outline outline-[#EDEFF2]',
+        isDark ? 'light-calendar': 'dark-calendar'
+      ]"
+    >
       <ClientOnly>
-        <FullCalendar :options="calendarOptions" />
+        <FullCalendar :options="calendarOptions"  />
       </ClientOnly>
     </div>
-    
-    <div v-if="showAddEvent" class="fixed inset-0 bg-[#212A33]/80 z-40" ></div>
+
+    <div v-if="showAddEvent" class="fixed inset-0 bg-[#212A33]/80 z-40"></div>
 
     <div
       v-if="showAddEvent"
-      class="fixed inset-0 flex items-center justify-center z-50 ">
-
-      <AddEventCard 
-      @close="closeAddEvent" 
-      @submit="handleSubmit"
-      />
+      class="fixed inset-0 flex items-center justify-center z-50"
+    >
+      <AddEventCard @close="closeAddEvent" @submit="handleSubmit" />
     </div>
   </div>
 </template>
@@ -39,6 +41,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 import AddEventCard from "~/components/cards/addEventCard.vue";
 
 const showAddEvent = ref(false);
+const isDark = useState("theme", () => true);
 
 function addEvent() {
   showAddEvent.value = true;
@@ -49,8 +52,8 @@ function closeAddEvent() {
 }
 
 function handleSubmit(newEvent) {
-  events.value.push(newEvent)
-  showAddEvent.value = false
+  events.value.push(newEvent);
+  showAddEvent.value = false;
 }
 const events = ref([
   {
@@ -77,11 +80,13 @@ const calendarOptions = {
   editable: true,
   selectable: false,
   events: events.value,
+  contentHeight: "auto",
+  expandRows: true,
 };
 </script>
 
 <style scoped>
-:deep(.fc .fc-toolbar-title) {
+.dark-calendar :deep(.fc .fc-toolbar-title) {
   font-size: 1.2rem;
   font-weight: 500;
   color: white;
@@ -97,17 +102,35 @@ const calendarOptions = {
   align-items: center;
   gap: 1rem;
 }
-:deep(.fc-scrollgrid) {
+
+
+.dark-calendar :deep(.fc-scrollgrid) {
   border-color: #2e363e;
 }
 
-:deep(.fc-scrollgrid td),
-:deep(.fc-scrollgrid th) {
+.light-calendar :deep(.fc-scrollgrid) {
+  border-color: #EDEFF2;
+}
+
+.dark-calendar :deep(.fc-scrollgrid td),:deep(.fc-scrollgrid th) {
   border-color: #2e363e;
+}
+
+.light-calendar :deep(.fc-scrollgrid th) {
+  border-color: #EDEFF2;
 }
 
 :deep(.fc .fc-day-today) {
-  background-color: #2E363E !important;
+  background-color: #2e363e !important;
 }
 
+.light-calendar :deep(.fc .fc-day-today) {
+  background-color: #EDEFF2 !important;
+}
+
+.light-calendar :deep(.fc .fc-toolbar-title) {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: black;
+}
 </style>

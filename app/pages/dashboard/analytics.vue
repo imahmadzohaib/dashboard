@@ -9,13 +9,13 @@
       </div>
 
       <div
-        class="flex gap-2 rounded-xl items-center justify-around"
-        :class="!isDark ? 'bg-[#1F2933]' : 'bg-white'"
+        class="flex gap-2 rounded-xl items-center justify-around h-fit p-1"
+        :class="isDark ? 'bg-white' : 'bg-[#1F2933]'"
       >
         <div
           v-for="value in days"
           :key="value"
-          class="flex-1 p-2 rounded-md hover:bg-[#10B981] transition-all duration-300 ease-in-out"
+          class="flex-1 p-2 rounded-md hover:bg-[#10B981] transition-all duration-300 ease-in-out "
         >
           {{ value }}
         </div>
