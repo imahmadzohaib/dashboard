@@ -81,8 +81,10 @@ const calendarOptions = {
   editable: true,
   selectable: false,
   events: events.value,
+  height: '100%',
   contentHeight: "auto",
   expandRows: true,
+   
 };
 </script>
 
