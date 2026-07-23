@@ -16,7 +16,7 @@
   >
     <div
       v-for="value in langarr"
-      :key="value"
+      :key="value" 
       class="p-2 hover:bg-[#2E363E] transition-colors cursor-pointer pl-5 pr-5"
       :class="isSelected === value ? 'text-green-600' : ''"
       @click="selected(value)"
