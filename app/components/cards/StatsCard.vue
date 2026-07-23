@@ -36,7 +36,8 @@ const props = defineProps({
   positive: Boolean
 })
 
-const isDark= useState("theme",()=>true)
+const isDark= useState("theme")
+
 </script>
 
 

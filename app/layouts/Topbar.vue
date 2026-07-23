@@ -63,7 +63,8 @@ import { useMediaQuery } from "@vueuse/core";
 
 const sideBarIcon = ref("lucide:panel-left-close");
 const isOpen = useState("sidebar-open", () => true);
-const isDark = useState("theme", () => true);
+const isDark = useState("theme");
+
 
 const menuBarIcon = ref("lucide:menu");
 

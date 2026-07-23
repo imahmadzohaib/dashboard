@@ -41,7 +41,8 @@ import interactionPlugin from "@fullcalendar/interaction";
 import AddEventCard from "~/components/cards/addEventCard.vue";
 
 const showAddEvent = ref(false);
-const isDark = useState("theme", () => true);
+const isDark = useState("theme");
+
 
 function addEvent() {
   showAddEvent.value = true;

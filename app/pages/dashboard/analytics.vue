@@ -41,7 +41,7 @@
 import AnalyticTrafficChartRender from "~/components/chartRender/analytic-traffic-chart-render.vue";
 import AnalyticViewsChartItemRender from "~/components/chartRender/analytic-views-chart-item-render.vue";
 import MultiLineChart from "~/components/charts/MultiLineChart.vue";
-const isDark = useState("theme", () => true);
+const isDark = useState("theme");
 
 const days = ["7d", "30d", "90d"];
 </script>

@@ -6,7 +6,9 @@
     :class="!isDark?'hover:bg-[#2E363E]':'hover:bg-[#BABFC7]'"
     @click="handleClick(item)"
   >
+
     <Icon  :name="item.title === 'light' ? themeIcon : item.icon" :style="{color:'#80858B'}" />
+ 
   </div>
   <div
     class="fixed flex-col top-12 right-12 pt-1 bg-[#1C252E] rounded-md outline outline-[#29313A] font-semibold"
@@ -29,7 +31,9 @@ const isLang = ref(false);
 const langarr = ["English", "French", "Deutsch"];
 const isSelected = ref(langarr[0]);
 const colorMode = useColorMode()
-const isDark = useState("theme", ()=>true)
+const isDark = useState("theme")
+
+
 
 const themeIcon = computed(() =>
   colorMode.value === 'dark'
