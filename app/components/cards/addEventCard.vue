@@ -132,7 +132,7 @@ const startDate = ref(null);
 const endDate = ref(null);
 const description = ref(null);
 const emit = defineEmits(['close']);
-const isDark = useState("theme", () => true);
+const isDark = useState("theme");
 
 
 const submitEvent = ()=>{
